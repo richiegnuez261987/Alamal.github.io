@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Al Amal</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo.ico" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <style>
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      /* adjust to your div height */
+      overflow: hidden;
+    }
+
+    #bg-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      /* semi-transparent dark overlay */
+    }
+
+    .text-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+    }
+
+    /* Common box style */
+    .org-box {
+      width: 170px;
+      height: 110px;
+      padding: 10px;
+      text-align: center;
+      border: 2px solid #333;
+      border-radius: 12px;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    .org-box img {
+      width: 45px;
+      height: 45px;
+      margin-bottom: 6px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 4px;
+    }
+
+    /* Department colors */
+    .executive {
+      background: #1F3A93;
+    }
+
+    /* Navy Blue */
+    .technical {
+      background: #117864;
+    }
+
+    /* Teal Green */
+    .projects {
+      background: #CA6F1E;
+    }
+
+    /* Deep Orange */
+    .coord {
+      background: #884EA0;
+    }
+
+    /* Purple */
+    .admin {
+      background: #5D6D7E;
+    }
+
+    /* Gray Blue */
+  </style>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      packages: ["orgchart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Name');
+      data.addColumn('string', 'Manager');
+      data.addColumn('string', 'Tooltip');
+      data.addRows([
+        // Executive Branch
+        [{
+          v: 'ceo',
+          f: '<div class="org-box executive"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br><b>CEO / President</b></div>'
+        }, '', ''],
+        [{
+          v: 'md',
+          f: '<div class="org-box executive"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Managing Director</div>'
+        }, 'ceo', ''],
+        [{
+          v: 'gm',
+          f: '<div class="org-box executive"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>General Manager</div>'
+        }, 'md', ''],
+        // Under General Manager
+        [{
+          v: 'tech',
+          f: '<div class="org-box technical"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Technical Manager</div>'
+        }, 'gm', ''],
+        [{
+          v: 'proj',
+          f: '<div class="org-box projects"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Projects Director</div>'
+        }, 'gm', ''],
+        [{
+          v: 'coord',
+          f: '<div class="org-box coord"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Project Coordinator</div>'
+        }, 'gm', ''],
+        [{
+          v: 'admin',
+          f: '<div class="org-box admin"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Admin Manager</div>'
+        }, 'gm', ''],
+        // Technical Manager branch
+        [{
+          v: 'mechIn',
+          f: '<div class="org-box technical"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Mechanical In-Charge</div>'
+        }, 'tech', ''],
+        [{
+          v: 'qaqc',
+          f: '<div class="org-box technical"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>QA/QC</div>'
+        }, 'mechIn', ''],
+        [{
+          v: 'mechFore',
+          f: '<div class="org-box technical"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Mechanical Foreman</div>'
+        }, 'qaqc', ''],
+        // Projects Director branch
+        [{
+          v: 'elecIn',
+          f: '<div class="org-box projects"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Electrical In-Charge</div>'
+        }, 'proj', ''],
+        [{
+          v: 'safety',
+          f: '<div class="org-box projects"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Safety Officer</div>'
+        }, 'elecIn', ''],
+        [{
+          v: 'permit',
+          f: '<div class="org-box projects"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Permit Receiver</div>'
+        }, 'safety', ''],
+        // Project Coordinator branch
+        [{
+          v: 'asstMech',
+          f: '<div class="org-box coord"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Asst. Mechanical In-Charge</div>'
+        }, 'coord', ''],
+        [{
+          v: 'docCtrl',
+          f: '<div class="org-box coord"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Document Control</div>'
+        }, 'asstMech', ''],
+        [{
+          v: 'elecFore',
+          f: '<div class="org-box coord"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><br>Electrical Foreman</div>'
+        }, 'docCtrl', '']
+      ]);
+      var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+      chart.draw(data, {
+        allowHtml: true
+      });
+    }
+  </script>
+
+</head>
+
+<body>    
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+        <!-- Uncomment below if you prefer to use an text logo -->
+        <!-- <h1><a href="index.html">NewBiz</a></h1> -->
+        <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li class="dropdown" style="display: none;"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- #header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="clearfix">
+    <div class="container" data-aos="fade-up">
+
+      <div class="hero-img" data-aos="zoom-out" data-aos-delay="200">
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline id="bg-video">
+            <source src="assets/arc.mp4" type="video/mp4">
+          </video>
+          <div class="overlay"></div>
+          <div class="text-content">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-info" data-aos="zoom-in" data-aos-delay="100">
+        <P
+          style="font-size: 40px; text-shadow: 2px 2px 4px rgb(15, 15, 15); font-weight: bold; text-transform: uppercase; color: rgb(244, 244, 246);">
+          Al Amal Architectural Foundation for General Contracting</p>
+        <div>
+          <p style="text-align: justify;color:white;hyphens: auto;font-size: 18px;">
+            BUILDING THE FUTURE
+            RESTORING THE PAST……………
+
+          </p>
+          <a href="#about" class="btn-get-started scrollto">Get Started</a>
+          <a href="#services" class="btn-services scrollto">Our Services</a>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h3>About Us</h3>
+          <p style="text-align: justify;hyphens: auto;">Al Amal Architectural Foundation for General Contracting is fast
+            gaining recognition in the field of the construction business. It delivers contracting services for general
+            construction of residential and commercial buildings, nonresidential buildings including schools, hospitals,
+            hotels, etc., and pre-fabricated buildings on sites providers in diverse industries in K.S.A.
+            <br /> <br />
+            With increasing projects in the whole of Kingdom of Saudi Arabia, Al Amal Architectural Foundation for
+            General Contracting can accommodate all kinds of projects from Civil, MEP, Infrastructure, Communication,
+            General Contracting.
+            <br /> <br />
+            Our employees and management work hand in hand to achieve success and to give our clients a better if not
+            the best result when it comes to construction.
+            <br /> <br />
+            Al Amal Architectural Foundation for General Contracting is equipped with the knowledge to execute projects
+            with milestones.
+            <br /> <br />
+
+            We, at Al Amal Architectural Foundation for General Contracting, would like to give you all the best
+            Engineering and Construction projects and we deliver results with success. It is in our mind that everyone
+            projects small or big matters the same and dealt with equal importance and achieves milestones.
+          </p>
+
+        </header>
+
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <!-- <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat.
+            </p> -->
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="bi bi-card-checklist"></i></div>
+              <h4 class="title"><a href="">MISSION</a></h4>
+              <p class="description" style="text-align: justify;hyphens: auto;">Our mission is to responsibly provide
+                quality workmanship in the field of
+                construction and our services through innovation, learning, and operational excellence while sustaining
+                maximum value for our stakeholders.<br>
+                To provide Construction services of the highest quality, conforming to the
+                International regulations and standards. <br />
+
+                To ensure that the Investor & Share Holders get the best returns from our business operations.
+                <br />
+                To provide utmost satisfaction and great pride to all stakeholders who are
+                associated with our company, products and services.
+              </p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="bi bi-brightness-high"></i></div>
+              <h4 class="title"><a href="">VISION</a></h4>
+              <p class="description" style="text-align: justify;hyphens: auto;">Our Vision is to be the best in the
+                industry and to ensure the long-term success of our business by contributing economically,
+                environmentally, and socially to the communities in which we operate.<br />
+
+                To become one of the leading Construction Conglomerates of the Kingdom of Saudi Arabia and thereby
+                contributing to the economy of the Kingdom.
+                <br />
+                To develop an organization structure which will attract, retain, develop and motivate high caliber staff
+                dedicated to the implementation of our vision and mission.
+              </p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+              <h4 class="title"><a href="">CORE VALUES</a></h4>
+              <p class="description" style="text-align: justify;hyphens: auto;">We Serve……. We Run……... We adapt……We
+                stay……. We commit humbly.</p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 background order-lg-2" data-aos="zoom-in">
+            <img src="assets/img/mission.png" class="img-fluid" alt="">
+          </div>
+        </div>
+        <br />
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <!-- <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat.
+            </p> -->
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="bi bi-cone-striped"></i></div>
+              <h4 class="title"><a href="">HEALTH AND SAFETY POLICY</a></h4>
+              <p class="description" style="text-align: justify;hyphens: auto;">Health, safety, and environment policy
+                at Al Amal Architectural Foundation for General Contracting ensures the safeguard, health, and welfare
+                of its employees and conserving the environment. All employees have an important responsibility towards
+                their own safety and their fellow employees. Appropriate training, supervision, and information shall be
+                provided to encourage and enable employees to carry out their duty safely and properly. By adhering to
+                the company safety policy, the common objective of total safety will be achieved. In doing so, this will
+                reflect individual and corporate professionalism which is the keystone of our existence as a leading
+                industrial force of Al Amal Architectural Foundation for General Contracting that safety is synonymous
+                with quality. Since we are committed to excellence it follows that minimizing the risk of injury to
+                people and damage to the equipment and products is inseparable from our overall company objectives.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 background order-lg-2" data-aos="zoom-in">
+            <img src="assets/img/safe.png" class="img-fluid" alt="">
+          </div>
+        </div>
+
+        <div class="row about-extra">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img src="assets/img/about-extra-1.svg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-5 pt-lg-0" data-aos="fade-left">
+            <h4>MESSAGE FROM THE C.E.O.</h4>
+            <p style="text-align: justify;hyphens: auto;">
+              We, at Al Amal Architectural Foundation for General Contracting, came from the past that’s full of
+              imagination and here we are to the future with all the knowledge and expertise that we gain from our past
+              experience. Together we’ll build the future and restore the past. I would like to share with you our
+              sincerity and trustworthiness in giving you all our expertise, equipped with our craftmanship that is
+              reliable and can be of satisfaction to the greater needs of the community.
+              <br />
+              I have dedicated my time, effort, and knowledge along with the vision that I and my colleague in the
+              business will soon be successful in all the endeavors that we will face.
+              <br />
+              Great patience and perseverance will result in success in all fields of construction and soon we’ll all be
+              in good shape if not better.
+              <br />
+              Together, we will face the challenges that we will face but with pride and dignity………
+              <br /><br />
+              Al Amal Architectural Foundation for General Contracting
+              C.E.O.
+
+            </p>
+
+          </div>
+        </div>
+
+        <div class="row about-extra" style="display: none;">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+            <img src="assets/img/about-extra-2.svg" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-right">
+            <h4>Neque saepe temporibus repellat ea ipsum et. Id vel et quia tempora facere reprehenderit.</h4>
+            <p>
+              Delectus alias ut incidunt delectus nam placeat in consequatur. Sed cupiditate quia ea quis. Voluptas nemo
+              qui aut distinctio. Cumque fugit earum est quam officiis numquam. Ducimus corporis autem at blanditiis
+              beatae incidunt sunt.
+            </p>
+            <p>
+              Voluptas saepe natus quidem blanditiis. Non sunt impedit voluptas mollitia beatae. Qui esse molestias.
+              Laudantium libero nisi vitae debitis. Dolorem cupiditate est perferendis iusto.
+            </p>
+            <p>
+              Eum quia in. Magni quas ipsum a. Quis ex voluptatem inventore sint quia modi. Numquam est aut fuga
+              mollitia exercitationem nam accusantium provident quia.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h3>SERVICE AND FIELD OF SPECIALITY</h3>
+        </header>
+
+        <div class="row justify-content-center">
+          <div class="col-sm col-md">
+            <div class="card shadow-lg rounded-3">
+              <div class="card-header bg-primary text-white fw-bold">
+                📋 FIELD OF SPECIALITY
+              </div>
+              <ul class="list-group list-group-flush" id="timelineList">
+                <!-- Items will be injected here by JS -->
+
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm col-md">
+            <div class="card shadow-lg rounded-3">
+              <div class="card-header bg-primary text-white fw-bold">
+                📋 SERVICES
+              </div>
+              <ul class="list-group list-group-flush" id="timelineList2">
+                <!-- Items will be injected here by JS -->
+
+              </ul>
+            </div>
+
+          </div>
+          <!-- <div class="col-md-6 col-lg-5" data-aos="zoom-in" data-aos-delay="200">
+            <div class="box">
+              <div class="icon"><i class="bi bi-calendar4-week" style="color: #4680ff;"></i></div>
+              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
+                soluta nobis est eligendi</p>
+            </div>
+          </div> -->
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" style="display: none;">
+      <div class="container" data-aos="fade-up">
+        <header class="section-header">
+          <h3>Why choose us?</h3>
+          <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+        </header>
+
+        <div class="row row-eq-height justify-content-center">
+
+          <div class="col-lg-4 mb-4">
+            <div class="card" data-aos="zoom-in" data-aos-delay="100">
+              <i class="bi bi-calendar4-week"></i>
+              <div class="card-body">
+                <h5 class="card-title">Corporis dolorem</h5>
+                <p class="card-text">Deleniti optio et nisi dolorem debitis. Aliquam nobis est temporibus sunt ab
+                  inventore officiis aut voluptatibus.</p>
+                <a href="#" class="readmore">Read more </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="card" data-aos="zoom-in" data-aos-delay="200">
+              <i class="bi bi-camera-reels"></i>
+              <div class="card-body">
+                <h5 class="card-title">Voluptates dolores</h5>
+                <p class="card-text">Voluptates nihil et quis omnis et eaque omnis sint aut. Ducimus dolorum aspernatur.
+                </p>
+                <a href="#" class="readmore">Read more </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="card" data-aos="zoom-in" data-aos-delay="300">
+              <i class="bi bi-chat-square-text"></i>
+              <div class="card-body">
+                <h5 class="card-title">Eum ut aspernatur</h5>
+                <p class="card-text">Autem quod nesciunt eos ea aut amet laboriosam ab. Eos quis porro in non nemo ex.
+                </p>
+                <a href="#" class="readmore">Read more </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row counters" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Clients</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="421" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Projects</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="1364" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Hours Of Support</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Hard Workers</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="clearfix">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h3 class="section-title">Our Portfolio</h3>
+        </header>
+
+        <!-- Filters -->
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">INTERIOR DESIGN</li>
+              <li data-filter=".filter-card">ALUMINUM CLADDING</li>
+              <li data-filter=".filter-web">CIVIL WORKS</li>
+               <li data-filter=".filter-latf">LATIFIA HOUSING PROJECTS</li>
+                 <li data-filter=".filter-tile">TILE WORKS</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Portfolio items will be generated here -->
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" id="portfolio-container">
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="section-bg" style="display: none;">
+      <div class="container" data-aso="zoom-in">
+
+        <header class="section-header">
+          <h3>Testimonials</h3>
+        </header>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <img src="assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
+                    <h3>Saul Goodman</h3>
+                    <h4>Ceo &amp; Founder</h4>
+                    <p>
+                      Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
+                      Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                    </p>
+                  </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <img src="assets/img/testimonial-2.jpg" class="testimonial-img" alt="">
+                    <h3>Sara Wilsson</h3>
+                    <h4>Designer</h4>
+                    <p>
+                      Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram
+                      malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                    </p>
+                  </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <img src="assets/img/testimonial-3.jpg" class="testimonial-img" alt="">
+                    <h3>Jena Karlis</h3>
+                    <h4>Store Owner</h4>
+                    <p>
+                      Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
+                      tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                    </p>
+                  </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <img src="assets/img/testimonial-4.jpg" class="testimonial-img" alt="">
+                    <h3>Matt Brandon</h3>
+                    <h4>Freelancer</h4>
+                    <p>
+                      Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
+                      minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                    </p>
+                  </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <img src="assets/img/testimonial-5.jpg" class="testimonial-img" alt="">
+                    <h3>John Larson</h3>
+                    <h4>Entrepreneur</h4>
+                    <p>
+                      Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim
+                      culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum
+                      quid.
+                    </p>
+                  </div>
+                </div><!-- End testimonial item -->
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h3>MANAGEMENT CHART</h3>
+
+        </div>
+
+        <div class="row">
+          <div class="col-lg col-md" data-aos="zoom-out" data-aos-delay="300">
+            <div id="chart_div"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="section-bg">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h3>TIED UP WITH </h3>
+          <p> Al Amal Architectural Foundation for General Contracting also tied up with several manpower and material
+            supplier which form part of our construction projects.
+          </p>
+        </div>
+
+        <div class="row g-0 clients-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/trane.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/carrier.jpg" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/honeywell.jpg" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/sharqawi.jfif" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/alfanar.jfif" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/shnieder.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/isam.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/karban.png" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/saline.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/stc.png" class="img-fluid" alt="">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- End Clients Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" style="display: none;">
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="section-header">
+          <h3>Contact Us</h3>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="map mb-4 mb-lg-0">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+                frameborder="0" style="border:0; width: 100%; height: 340px;" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-md-5 info">
+                <i class="bi bi-geo-alt"></i>
+                <p>A108 Adam Street, NY 535022</p>
+              </div>
+              <div class="col-md-4 info">
+                <i class="bi bi-envelope"></i>
+                <p>info@example.com</p>
+              </div>
+              <div class="col-md-3 info">
+                <i class="bi bi-phone"></i>
+                <p>+1 5589 55488 55</p>
+              </div>
+            </div>
+
+            <div class="form">
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                  <div class="form-group col-lg-6">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group col-lg-6 mt-3 mt-lg-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-info">
+            <h3>AL AMAL</h3>
+            <p>Al Amal Architectural Foundation for General Contracting is fast gaining recognition in the field of the
+              construction business. It delivers contracting services for general construction of residential and
+              commercial buildings, nonresidential buildings including schools, hospitals, hotels, etc., and
+              pre-fabricated buildings on sites providers in diverse industries in K.S.A.</p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of service</a></li>
+              <li><a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              Riyadh, Riyadh, <br />Al-Sahafa, <br />Jalil 11434
+
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>AL AMAL</h4>
+            <p>  With increasing projects in the whole of Kingdom of Saudi Arabia, Al Amal Architectural Foundation for
+            General Contracting can accommodate all kinds of projects from Civil, MEP, Infrastructure, Communication,
+            General Contracting.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>AL AMAL</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=NewBiz
+      -->
+        Designed by Richie Nuez
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Array of timeline steps
+    const steps = [{
+        step: 1,
+        title: "Fit-out and Interior work",
+        description: "Define goals and requirements",
+        color: "primary"
+      },
+      {
+        step: 2,
+        title: "Renovation and fabrication work",
+        description: "Use Figma or Sketch",
+        color: "success"
+      },
+      {
+        step: 3,
+        title: "Restoration of residential and non-residential",
+        description: "Build with Bootstrap + JS",
+        color: "danger"
+      },
+      {
+        step: 4,
+        title: "Electrical and Mechanical ducting works.",
+        description: "Check bugs and launch app",
+        color: "warning"
+      }
+    ];
+    const listContainer = document.getElementById("timelineList2");
+    // Generate list items dynamically
+    steps.forEach(item => {
+      const li = document.createElement("li");
+      li.className = "list-group-item d-flex align-items-start";
+      li.innerHTML = `
+      <div class="me-3">
+        <i class="bi bi-${item.step}-circle-fill text-${item.color} fs-4"></i>
+      </div>
+      <div>
+        <strong>  ${item.title}</strong>
+        
+      </div>
+    `;
+      listContainer.appendChild(li);
+    });
+    const service = [{
+        step: 1,
+        title: "Civil and Structural Works",
+        description: "Define goals and requirements",
+        color: "primary"
+      },
+      {
+        step: 2,
+        title: "Aluminum Cladding / Glass Cladding",
+        description: "Use Figma or Sketch",
+        color: "success"
+      },
+      {
+        step: 3,
+        title: "Mechanical, Electrical, and Plumbing – (MEP Works)",
+        description: "Build with Bootstrap + JS",
+        color: "danger"
+      },
+      {
+        step: 4,
+        title: "Site Development, Backfilling, Asphalting, Road Works",
+        description: "Check bugs and launch app",
+        color: "warning"
+      }, {
+        step: 5,
+        title: "Network Infrastructure- FTTH, FDT, Fiber Optic Works",
+        description: "Define goals and requirements",
+        color: "primary"
+      }, {
+        step: 6,
+        title: "Communication, Security and Digital Solutions",
+        description: "Define goals and requirements",
+        color: "success"
+      }, {
+        step: 7,
+        title: "General Contracting",
+        description: "Define goals and requirements",
+        color: "danger"
+      }
+    ];
+    //  <small class="text-muted">${item.description}</small>
+    const listContainer2 = document.getElementById("timelineList");
+    // Generate list items dynamically
+    service.forEach(item => {
+      const li2 = document.createElement("li");
+      li2.className = "list-group-item d-flex align-items-start";
+      li2.innerHTML = `
+      <div class="me-3">
+        <i class="bi bi-${item.step}-circle-fill text-${item.color} fs-4"></i>
+      </div>
+      <div>
+        <strong>  ${item.title}</strong><br>
+        
+      </div>
+    `;
+      listContainer2.appendChild(li2);
+    });
+  </script>
+
+  <script>
+    // Array of portfolio items
+    const portfolioItems = [{
+        title: "Interior Design 1",
+        category: "Interior",
+        filter: "filter-app",
+        img: "assets/img/portfolio/In1.png",
+        link: "#"
+      },
+      {
+        title: "Civil Work 1",
+        category: "Civil Work",
+        filter: "filter-web",
+        img: "assets/img/portfolio/CI1.png",
+        link: "#"
+      },
+      {
+        title: "Interior Design 2",
+        category: "Interior",
+        filter: "filter-app",
+        img: "assets/img/portfolio/in2.png",
+        link: "#"
+      },
+      {
+        title: "Aluminum Cladding 1",
+        category: "Aluminum Cladding",
+        filter: "filter-card",
+        img: "assets/img/portfolio/Ca1.png",
+        link: "#"
+      },
+      {
+        title: "Civil Work 2",
+        category: "Civil Work",
+        filter: "filter-web",
+        img: "assets/img/portfolio/C2.png",
+        link: "#"
+      },
+      {
+        title: "Interior Design 3",
+        category: "Interior",
+        filter: "filter-app",
+        img: "assets/img/portfolio/in3.png",
+        link: "#"
+      }, {
+        title: "Tile Work 2",
+        category: "Tile",
+        filter: "filter-tile",
+        img: "assets/img/portfolio/tile2.png",
+        link: "#"
+      },
+       {
+        title: "Latifia Housing Project 2",
+        category: "Latifia Housing Project",
+        filter: "filter-latf",
+        img: "assets/img/portfolio/lat2.png",
+        link: "#"
+      },
+      {
+        title: "ALUMINUM CLADDING 2",
+        category: "Aluminum Cladding",
+        filter: "filter-card",
+        img: "assets/img/portfolio/ca2.png",
+        link: "#"
+      },
+      {
+        title: "ALUMINUM CLADDING 1",
+        category: "Aluminum Cladding",
+        filter: "filter-card",
+        img: "assets/img/portfolio/ca3.png",
+        link: "#"
+      },
+       {
+        title: "Tile Work 1",
+        category: "Tile",
+        filter: "filter-tile",
+        img: "assets/img/portfolio/tile1.png",
+        link: "#"
+      },
+       {
+        title: "Latifia Housing Project 1",
+        category: "Latifia Housing Project",
+        filter: "filter-latf",
+        img: "assets/img/portfolio/lat1.png",
+        link: "#"
+      },
+      {
+        title: "Civil Work 1",
+        category: "Civil Work",
+        filter: "filter-web",
+        img: "assets/img/portfolio/c3.png",
+        link: "#"
+      }
+    ];
+    const portfolioContainer = document.getElementById("portfolio-container");
+    // Loop through array and create portfolio items
+    portfolioItems.forEach(item => {
+      const div = document.createElement("div");
+      div.className = `col-lg-4 col-md-6 portfolio-item ${item.filter}`;
+      div.innerHTML = `
+      <div class="portfolio-wrap">
+        <img src="${item.img}" class="img-fluid" alt="">
+        <div class="portfolio-info">
+          <h4><a href="${item.link}">${item.title}</a></h4>
+          <p>${item.category}</p>
+          <div>
+            <a href="${item.img}" data-gallery="portfolioGallery" title="${item.title}"
+               class="portfolio-lightbox link-preview"><i class="bi bi-plus"></i></a>
+            <a href="${item.link}" class="link-details" title="More Details"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+      </div>
+    `;
+      portfolioContainer.appendChild(div);
+    });
+  </script>
+</body>
+
+</html>
